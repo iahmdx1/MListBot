@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: telegram-login-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: BOT_TOKEN
+        value: ""  # لا تضع الـ Token هنا مباشرة، سيتم تعيينه في إعدادات Render
+    disk:
+      name: web_con
+      mountPath: /opt/render/project/src/web_con
+      sizeGB: 1
